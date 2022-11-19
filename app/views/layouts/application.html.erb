@@ -13,50 +13,58 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-dark" >
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg" >
         <div class="container">
-          <a href="/" class="navbar-brand h5 text-white">Bookers</a>
-          <div class="list-unstyled" class="list-inline d-inline-block">
-            <% if user_signed_in? %>
-              <li class="list-inline-item">
-                <%= link_to "Users", users_path %>
-              </li>
-              <li class="list-inline-item">
-                <%= link_to "Books", books_path %>
-              </li>
-              <li class="list-inline-item">
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-              </li>
-            <% else %>
-              <li class="navbar-text">
-                <%= link_to root_path, class:"text-white" do %>
-                  <i class="fa-solid fa-house"></i>
-                  Home
-                <% end %>
-              </li>
-              <li class="navbar-text">
-                <%= link_to about_path, class:"text-white" do %>
-                  <i class="fa-solid fa-link"></i>
-                  About
-                <% end %>
-              </li>
-              <li class="navbar-text">
-                <%= link_to new_user_registration_path, class:"text-white" do %>
-                  <i class="fa-solid fa-user-plus"></i>
-                  Sign up
-                <% end %>
-              </li>
-              <li class="navbar-text">
-                <%= link_to new_user_session_path, class:"text-white" do %>
-                  <i class="fa-solid fa-right-to-bracket"></i>
-                  Log in
-                <% end %>
-              </li>
-            <% end %>
+          <a href="/" class="navbar-brand h5 text-white font-weight-normal pt-1 pb-0">Bookers</a>
+          <bottan class="navbar-toggler navbar-expend-sm" data-toggle="collapse" data-target="#Navbar">
+            <span class="navbar-toggler-icon"></span>
+          </bottan>
+          <div class="collapse navbar-collapse justify-content-lg-end" id="Navbar">
+            <ul class="navbar-nav d-lg-inline-block">
+              <% if user_signed_in? %>
+                <li class="navbar-text mx-1">
+                  <%= link_to "Users", users_path %>
+                </li>
+                <li class="navbar-text mx-1">
+                  <%= link_to "Books", books_path %>
+                </li>
+                <li class="navbar-text mx-1">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="navbar-text mx-1">
+                  <%= link_to root_path, class:"text-light" do %>
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  <% end %>
+                </li>
+                <li class="navbar-text mx-1">
+                  <%= link_to about_path, class:"text-light" do %>
+                    <i class="fa-solid fa-link"></i>
+                    About
+                  <% end %>
+                </li>
+                <li class="navbar-text mx-1">
+                  <%= link_to new_user_registration_path, class:"text-light" do %>
+                    <i class="fa-solid fa-user-plus"></i>
+                    Sign up
+                  <% end %>
+                </li>
+                <li class="navbar-text mx-1">
+                  <%= link_to new_user_session_path, class:"text-light" do %>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Log in
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </nav>
     </header>
     <%= yield %>
+    <footer class="container">
+      <P class="row justify-content-center mb-20">CopyRight Infratop.inc</P>
+    </footer>
   </body>
 </html>
