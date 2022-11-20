@@ -1,4 +1,1 @@
-
-        <li>
-          <%= link_to "Home", user_path(user.id) %>
-        </li>
+        
