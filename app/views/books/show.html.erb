@@ -1,8 +1,8 @@
-<main>
+<main class="pt-3">
   <div class="container px-3 px-md-2">
     <div class="row">
-      <%= render 'info', booker: @booker, book: @book %>
-      <div class="col-md-8 mt-3 offset-1 px-2 ml-1 ml-sm-auto">
+      <%= render 'info', booker: @booker, book: @book_new %>
+      <div class="col-md-8 offset-1 px-2 ml-1 ml-sm-auto">
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -14,13 +14,13 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to book_path(@book_id.id) do %>
-                  <%= @book_id.title %>
+                <%= link_to book_path(@book.id) do %>
+                  <%= @book.title %>
                 <% end %>
               </td>
-              <td><%= @book_id.body %></td>
-              <td><%= link_to 'Edit', edit_book_path(@book_id.id), class:"btn btn-success btn-sm" %></td>
-              <td><%= link_to 'Destroy', book_path(@book_id.id), class:"btn btn-danger btn-sm", method: :delete %></td>
+              <td><%= @book.body %></td>
+              <td><%= link_to 'Edit', edit_book_path(@book.id), class:"btn btn-success btn-sm" %></td>
+              <td><%= link_to 'Destroy', book_path(@book.id), class:"btn btn-danger btn-sm", method: :delete, "data-confirm"=>"本当に消しますか？" %></td>
             </tr>
           </tbody>
         </table>
