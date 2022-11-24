@@ -2,7 +2,7 @@
   <div class="container px-3 px-md-2">
     <div class="row">
       <%= render 'info', booker: @booker, book: @book_new %>
-      <div class="col-md-8 offset-1 px-2 ml-1 ml-sm-auto">
+      <div class="col-md-8 offset-md-1 px-2 ml-1 ml-sm-auto">
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -19,8 +19,16 @@
                 <% end %>
               </td>
               <td><%= @book.body %></td>
-              <td><%= link_to 'Edit', edit_book_path(@book.id), class:"btn btn-success btn-sm" %></td>
-              <td><%= link_to 'Destroy', book_path(@book.id), class:"btn btn-danger btn-sm", method: :delete, "data-confirm"=>"本当に消しますか？" %></td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to 'Edit', edit_book_path(@book.id), class:"btn btn-success btn-sm" %>
+                <% end %>
+              </td>
+              <td>
+                <% if @book.user == current_user %>
+                  <%= link_to 'Destroy', book_path(@book.id), class:"btn btn-danger btn-sm", method: :delete, "data-confirm"=>"本当に消しますか？" %>
+                <% end %>
+              </td>
             </tr>
           </tbody>
         </table>
